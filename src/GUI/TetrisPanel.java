@@ -50,6 +50,7 @@ public class TetrisPanel extends JPanel implements Runnable {
         long lastTime = System.nanoTime();
         long currentTime;
 
+        // Datos para tener constancia de los FPS en tiempo real.
         long timer = 0;
         int drawCount = 0;
 
@@ -65,6 +66,9 @@ public class TetrisPanel extends JPanel implements Runnable {
              */
             delta += (currentTime - lastTime) / drawInterval;
 
+            // se actualiza el temporizador para los FPS.
+            timer += (currentTime - lastTime);
+
             // El tiempo actual se guarda en el último tiempo registrado.
             lastTime = currentTime;
 
@@ -78,8 +82,19 @@ public class TetrisPanel extends JPanel implements Runnable {
                 update();
                 repaint();
                 delta--;
+
+                // Se incrementa en 1 la cantidad de veces que se ha pintado en 1 segundo.
+                drawCount++;
             }
 
+            /*
+            'if statement' para chequear los FPS.
+             */
+            if (timer >= 1000000000) {
+                System.out.println("FPS: " + drawCount);
+                drawCount = 0;
+                timer = 0;
+            }
         }
     }
 

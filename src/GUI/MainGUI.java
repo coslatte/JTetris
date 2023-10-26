@@ -14,6 +14,7 @@ public class MainGUI {
         mainFrame.pack();
 
         mainFrame.setLocationRelativeTo(null);
+        tp.startGameThread();
         mainFrame.setVisible(true);
     }
 }
