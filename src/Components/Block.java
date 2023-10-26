@@ -1,4 +1,4 @@
-package Blocks;
+package Components;
 
 public class Block {
 }
