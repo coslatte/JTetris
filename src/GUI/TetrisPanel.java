@@ -37,7 +37,11 @@ public class TetrisPanel extends JPanel implements Runnable {
         esos datos actualizados y nuevos.
          */
         while (gameThread != null) {
+            // método para actualizar
+            update();
 
+            // método para pintar el componente
+            repaint();
         }
     }
 
@@ -47,5 +51,7 @@ public class TetrisPanel extends JPanel implements Runnable {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        // Parseando el gráfico 'g' en un gráfico 2D.
+        Graphics2D g2 = (Graphics2D) g;
     }
 }
