@@ -14,7 +14,7 @@ public class Tetrominoe_T extends Tetrominoe {
             {1, 1, 1},
             {0, 0, 0},
     };
-    public Tetrominoe_T (byte tetroDimension, String tetroColor) {
-        super (tetroDimension, tetroColor);
+    public Tetrominoe_T (String tetroColor) {
+        super (tetroColor);
     }
 }

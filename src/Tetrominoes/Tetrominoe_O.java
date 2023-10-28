@@ -12,7 +12,7 @@ public class Tetrominoe_O extends Tetrominoe {
             {1, 1},
             {1, 1},
     };
-    public Tetrominoe_O(byte tetroDimension, String tetroColor) {
-        super(tetroDimension, tetroColor);
+    public Tetrominoe_O(String tetroColor) {
+        super(tetroColor);
     }
 }

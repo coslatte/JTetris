@@ -2,9 +2,7 @@ package Tetrominoes;
 
 public abstract class Tetrominoe {
     protected String tetroColor;
-    protected byte tetroDimension;
-    public Tetrominoe(byte tetroDimension, String tetroColor) {
-        this.tetroDimension = tetroDimension;
+    public Tetrominoe(String tetroColor) {
         this.tetroColor = tetroColor;
     }
 
