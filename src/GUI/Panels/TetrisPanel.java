@@ -10,9 +10,9 @@ public class TetrisPanel extends JPanel implements Runnable {
     Thread gameThread;
 
     public TetrisPanel() {
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        setBackground(Color.decode("#202020"));
-        setLayout(null);
+        this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        this.setBackground(Color.decode("#202020"));
+        this.setLayout(null);
     }
 
     // Este método inicia el thread del Panel principal (TetrisPanel).
