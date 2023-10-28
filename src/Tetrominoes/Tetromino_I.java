@@ -1,13 +1,10 @@
 package Tetrominoes;
 
-public class Tetromino_I {
-    /*
-    Shape
-    {
-        [0], [0], [0], [0],
-        [0], [0], [0] ,[0],
-        [0], [0], [0], [0],
-        [1], [1], [1], [1]
+public class Tetromino_I extends Tetromino{
+private int[][] Shape = new int[4][4];
+
+    @Override
+    public void rotate() {
+        
     }
-     */
 }
