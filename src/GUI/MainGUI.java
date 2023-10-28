@@ -1,5 +1,7 @@
 package GUI;
 
+import GUI.Panels.TetrisPanel;
+
 import javax.swing.*;
 
 public class MainGUI {
