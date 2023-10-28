@@ -11,7 +11,7 @@ public class TetrisPanel extends JPanel implements Runnable {
 
     public TetrisPanel() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        setBackground(Color.darkGray);
+        setBackground(Color.decode("#202020"));
         setLayout(null);
     }
 
