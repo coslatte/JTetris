@@ -2,7 +2,7 @@
 We are developing this Java Tetris clone just for fun and for the willing of learning the language.
 
 # Challenge
-- Code the entire game using not a single framework, using just interface components from `javax.awt` and `javax.swing`.
+- Code the entire game using not a single framework, using just interface components from `java.awt` and `javax.swing`.
 
 # Expectations
 - The program should have integrated basically all Tetris clasic game rules.
