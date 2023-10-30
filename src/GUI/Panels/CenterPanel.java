@@ -4,7 +4,6 @@ import java.awt.*;
 
 public class CenterPanel extends TPanel {
     private final int[][] fieldArray;
-
     public CenterPanel() {
         setPreferredSize(new Dimension(centerPanelDimension[0], centerPanelDimension[1]));
         setLocation(centerPanelLocationXY[0], centerPanelLocationXY[1]);

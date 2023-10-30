@@ -110,6 +110,7 @@ public class MainPanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+
         lp.drawStuff(g2);
         cp.drawStuff(g2);
         rp.drawStuff(g2);
