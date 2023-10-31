@@ -9,12 +9,17 @@ public class Tetrominoe_Z extends Tetrominoe {
         □ ■ ■   ■ ■ □   □ ■ ■   ■ ■ □
         □ □ □   ■ □ □   □ □ □   ■ □ □
     */
-    private static final byte[][] tetrominoe_Z_spawnShape = {
+    private static final byte[][] spawnShape = {
             {1, 1, 0},
             {0, 1, 1},
             {0, 0, 0},
     };
     public Tetrominoe_Z (String tetroColor) {
         super (tetroColor);
+    }
+
+    @Override
+    public void rotate() {
+
     }
 }
