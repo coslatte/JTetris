@@ -2,7 +2,7 @@ package GUI.Panels;
 
 import java.awt.*;
 
-public class CenterPanel extends TPanel {
+public class CenterPanel extends GeneralPanelProperties {
     private final int[][] fieldArray;
     public CenterPanel() {
         setPreferredSize(new Dimension(centerPanelDimension[0], centerPanelDimension[1]));
@@ -15,7 +15,7 @@ public class CenterPanel extends TPanel {
     public void update() {
     }
 
-    public void drawStuff(Graphics2D g2D) {
+    public void draw(Graphics2D g2D) {
         g2D.setColor(strokeColor);
         g2D.setStroke(new BasicStroke(5f));
         g2D.drawRect(

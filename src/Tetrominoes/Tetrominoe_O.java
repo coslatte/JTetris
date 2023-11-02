@@ -8,11 +8,16 @@ public class Tetrominoe_O extends Tetrominoe {
         ■ ■   ■ ■   ■ ■   ■ ■
         ■ ■   ■ ■   ■ ■   ■ ■
     */
-    private static final byte[][] tetrominoe_O_spawnShape = {
+    private static final byte[][] spawnShape = {
             {1, 1},
             {1, 1},
     };
     public Tetrominoe_O(String tetroColor) {
         super(tetroColor);
+    }
+
+    @Override
+    public void rotate() {
+
     }
 }
