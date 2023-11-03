@@ -4,22 +4,23 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainPanel extends JPanel implements Runnable {
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
     private static final int FPS = 60;
-    LeftPanel lp;
     CenterPanel cp;
     RightPanel rp;
     Thread gameThread;
 
     public MainPanel() {
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setBackground(Color.decode("#202020"));
-        setLayout(null);
+        setLayout(new BorderLayout());
 
-        lp = new LeftPanel();
         cp = new CenterPanel();
+        //cp.setLayout(new FlowLayout(FlowLayout.LEFT));
+        cp.setPreferredSize(new Dimension(380, 700));
         rp = new RightPanel();
+        //rp.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        rp.setPreferredSize(new Dimension(300, 700));
+        add(cp, BorderLayout.WEST);
+        add(rp, BorderLayout.EAST);
     }
 
     // Este método inicia el thread del Panel principal (TetrisPanel).
@@ -110,8 +111,6 @@ public class MainPanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-
-        lp.drawStuff(g2);
         cp.drawStuff(g2);
         rp.drawStuff(g2);
     }
