@@ -14,12 +14,18 @@ public class Tetrominoe_T extends Tetrominoe {
             {1, 1, 1},
             {0, 0, 0},
     };
+    private final byte[][] rotateShape = new byte[4][4];
     public Tetrominoe_T (String tetroColor) {
         super (tetroColor);
     }
 
     @Override
     public void rotate() {
+        for (int x = 0; x<spawnShape.length;x++){
+            for (int y= 0; y < spawnShape.length; y++){
+                rotateShape[y][rotateShape.length -1 -x] = spawnShape[x][y];
+            }
+        }
 
     }
 }
