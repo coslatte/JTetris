@@ -1,4 +1,4 @@
-package Tetrominoes;
+package Components.Tetros;
 
 public abstract class Tetrominoe {
     protected String tetroColor;

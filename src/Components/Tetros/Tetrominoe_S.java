@@ -1,4 +1,4 @@
-package Tetrominoes;
+package Components.Tetros;
 
 public class Tetrominoe_S extends Tetrominoe {
     /*
