@@ -1,33 +1,35 @@
-package GUI.Panels;
+package GUI.Tetris;
+
+import GUI.Properties.TColors;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class MainPanel extends JPanel implements Runnable {
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
+public class TetrisPanel extends JPanel implements Runnable {
     private static final int FPS = 60;
-//    LeftPanel lp;
-    CenterPanel cp;
-//    RightPanel rp;
+    LeftPanel lp;
+    RightPanel rp;
     Thread gameThread;
+    public TetrisPanel() {
+        setBackground(TColors.BLACK202);
+        setLayout(new BorderLayout());
 
-    public MainPanel() {
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        setBackground(Color.decode("#151515"));
-        setLayout(null);
+        // LEFT PANEL
+        lp = new LeftPanel();
+        lp.setPreferredSize(new Dimension(380, 700));
 
-//        lp = new LeftPanel();
-        cp = new CenterPanel();
-//        rp = new RightPanel();
+        // RIGHT PANEL
+        rp = new RightPanel();
+        rp.setPreferredSize(new Dimension(300, 700));
+
+        add(lp, BorderLayout.WEST);
+        add(rp, BorderLayout.EAST);
     }
-
     // Este método inicia el thread del Panel principal (TetrisPanel).
     public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
     }
-
     @Override
     public void run() {
         /*
@@ -102,18 +104,13 @@ public class MainPanel extends JPanel implements Runnable {
             }
         }
     }
-
     public void update() {
-        cp.update();
+        lp.update();
     }
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         Graphics2D g2 = (Graphics2D) g;
-
-//        lp.draw(g2);
-        cp.draw(g2);
-//        rp.draw(g2);
+        lp.drawStuff(g2);
+        rp.drawStuff(g2);
     }
 }
