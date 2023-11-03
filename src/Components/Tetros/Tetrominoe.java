@@ -6,6 +6,5 @@ public abstract class Tetrominoe {
     public Tetrominoe(String tetroColor) {
         this.tetroColor = tetroColor;
     }
-    public void rotate() {
-    }
+    public abstract byte[][] rotate(byte[][] c);
 }

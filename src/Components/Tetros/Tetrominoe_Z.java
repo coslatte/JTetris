@@ -10,22 +10,34 @@ public class Tetrominoe_Z extends Tetrominoe {
         □ □ □   ■ □ □   □ □ □   ■ □ □
     */
     private static final byte[][] spawnShape = {
-            {1, 1, 0},
-            {0, 1, 1},
+            {7, 7, 0},
+            {0, 7, 7},
             {0, 0, 0},
     };
     private final byte[][] rotateShape = new byte[4][4];
     public Tetrominoe_Z (String tetroColor) {
+        /*
+        no jhay color especificado en el modelo
+         */
         super (tetroColor);
     }
 
     @Override
-    public void rotate() {
-        for (int x = 0; x<spawnShape.length;x++){
-            for (int y= 0; y < spawnShape.length; y++){
-                rotateShape[y][rotateShape.length -1 -x] = spawnShape[x][y];
+    public byte[][] rotate(byte[][] c) {
+        for (int x = 0; x<c.length;x++){
+            for (int y= 0; y < c.length; y++){
+                rotateShape[y][rotateShape.length -1 -x] = c[x][y];
             }
         }
+        return rotateShape ;
 
+    }
+
+    public byte[][] getRotateShape() {
+        return rotateShape;
+    }
+
+    public byte[][] getSpawnShape() {
+        return spawnShape;
     }
 }
