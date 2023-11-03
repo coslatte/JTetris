@@ -6,8 +6,6 @@ public abstract class Tetrominoe {
     public Tetrominoe(String tetroColor) {
         this.tetroColor = tetroColor;
     }
-
-    // Lo hacemos abstracto?
     public void rotate() {
     }
 }

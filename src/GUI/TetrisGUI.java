@@ -1,33 +1,37 @@
 package GUI;
 
-import GUI.Panels.MainPanel;
+import GUI.Tetris.TetrisPanel;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class TetrisGUI {
     public static void main(String[] args) {
 
-        JFrame mainFrame = new JFrame("JTetris test application");
+        JFrame mainFrame = new JFrame("JTetris Alpha Version");
+        try {
+            mainFrame.setIconImage(ImageIO.read(new File("icon/jtetris-icon.png")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setResizable(false);
 
-        MainPanel tp = new MainPanel();
+        TetrisPanel tp = new TetrisPanel();
         mainFrame.add(tp);
 
-        /*Acabo de usar la clase Toolkit de java para obtener las dimensiones de la pantalla y ponerlo para que aparezca en 
-        coordenadas relativas al monitor
-         * 
+        /*
+         * Clase Toolkit de java para obtener las dimensiones de la pantalla y ponerlo para que aparezca en
+         * coordenadas relativas al monitor. Con esta se obtiene el ancho y largo de la pantalla y dividiéndolo entre
+         * un número. Va a dar como resultado unas coordenadas relativas a cualquier monitor
          */
         Dimension e = Toolkit.getDefaultToolkit().getScreenSize();
-        /*
-         * con esto se obtiene el ancho y largo de la pantalla y dividiendolo entre un numero t va a dar unas coordenadas relativas 
-         * a cualquier monitor
-         */
-        mainFrame.setLocation((int)(e.getWidth()/6), (int)(e.getHeight()/6));
-        mainFrame.setSize(650, 700 );
+
+        mainFrame.setLocation((int) (e.getWidth() / 6), (int) (e.getHeight() / 6));
+        mainFrame.setSize(650, 700);
         mainFrame.setLocationRelativeTo(null);
         tp.startGameThread();
         mainFrame.setVisible(true);
