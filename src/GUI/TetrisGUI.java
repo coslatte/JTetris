@@ -12,11 +12,14 @@ public class TetrisGUI {
     public static void main(String[] args) {
 
         JFrame mainFrame = new JFrame("JTetris Alpha Version");
+
+        // ÍCONO DE LA APLICACIÓN
         try {
             mainFrame.setIconImage(ImageIO.read(new File("icon/jtetris-icon.png")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setResizable(false);
 
@@ -24,13 +27,13 @@ public class TetrisGUI {
         mainFrame.add(tp);
 
         /*
-         * Clase Toolkit de java para obtener las dimensiones de la pantalla y ponerlo para que aparezca en
+         * Clase Toolkit de Java para obtener las dimensiones de la pantalla y ponerlo para que aparezca en
          * coordenadas relativas al monitor. Con esta se obtiene el ancho y largo de la pantalla y dividiéndolo entre
          * un número. Va a dar como resultado unas coordenadas relativas a cualquier monitor
          */
-        Dimension e = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension screenDimensions = Toolkit.getDefaultToolkit().getScreenSize();
+//        mainFrame.setLocation((int) (screenDimensions.getWidth() / 6), (int) (screenDimensions.getHeight() / 6));
 
-        mainFrame.setLocation((int) (e.getWidth() / 6), (int) (e.getHeight() / 6));
         mainFrame.setSize(650, 700);
         mainFrame.setLocationRelativeTo(null);
         tp.startGameThread();

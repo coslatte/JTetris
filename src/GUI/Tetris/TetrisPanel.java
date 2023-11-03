@@ -7,19 +7,19 @@ import java.awt.*;
 
 public class TetrisPanel extends JPanel implements Runnable {
     private static final int FPS = 60;
-    LeftPanel lp;
-    RightPanel rp;
+    PlayManager lp;
+    ScorePanel rp;
     Thread gameThread;
     public TetrisPanel() {
         setBackground(TColors.BLACK202);
         setLayout(new BorderLayout());
 
         // LEFT PANEL
-        lp = new LeftPanel();
+        lp = new PlayManager();
         lp.setPreferredSize(new Dimension(380, 700));
 
         // RIGHT PANEL
-        rp = new RightPanel();
+        rp = new ScorePanel();
         rp.setPreferredSize(new Dimension(300, 700));
 
         add(lp, BorderLayout.WEST);
@@ -110,7 +110,7 @@ public class TetrisPanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        lp.drawStuff(g2);
-        rp.drawStuff(g2);
+        lp.draw(g2);
+        rp.draw(g2);
     }
 }
