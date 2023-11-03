@@ -24,7 +24,7 @@ public class TetrisGUI {
         mainFrame.add(tp);
 
         /*
-         * Clase Toolkit de java para obtener las dimensiones de la pantalla y ponerlo para que aparezca en
+         * Clase Toolkit de Java para obtener las dimensiones de la pantalla y ponerlo para que aparezca en
          * coordenadas relativas al monitor. Con esta se obtiene el ancho y largo de la pantalla y dividiéndolo entre
          * un número. Va a dar como resultado unas coordenadas relativas a cualquier monitor
          */
