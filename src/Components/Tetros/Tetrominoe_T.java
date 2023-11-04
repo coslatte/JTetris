@@ -11,7 +11,7 @@ public class Tetrominoe_T extends Tetrominoe {
         ■ ■ ■   ■ ■ □   ■ ■ ■   ■ ■ □
         □ □ □   ■ □ □   □ ■ □   □ ■ □
     */
-    private static final byte[][] spawnShape = {
+    private static final byte[][] spawnState = {
             {0, 6, 0},
             {6, 6, 6},
             {0, 0, 0},
@@ -22,21 +22,14 @@ public class Tetrominoe_T extends Tetrominoe {
     }
 
     @Override
-    public byte[][] rotate(byte[][] c) {
-        for (int x = 0; x<c.length;x++){
-            for (int y= 0; y < c.length; y++){
-                rotateShape[y][rotateShape.length -1 -x] = c[x][y];
-            }
-        }
-        return rotateShape ;
-
+    public byte[][] rotateL(byte[][] c) {
+        return super.rotateL(c);
     }
 
     public byte[][] getRotateShape() {
         return rotateShape;
     }
-
     public byte[][] getSpawnShape() {
-        return spawnShape;
+        return spawnState;
     }
 }

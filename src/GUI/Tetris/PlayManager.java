@@ -7,11 +7,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PlayManager extends JPanel {
-    private final int[][] fieldArray;
-
+    /**
+     * <code> fieldArray </code> tiene la responsabilidad de iniciar los valores (en 0) de la matriz
+     * donde van a estar los bloques que forman a los tetrominos.
+     */
+    private final int[][] fieldArray = new int[20][10];
     public PlayManager() {
         setBackground(TColor.BLACK202);
-        fieldArray = new int[20][10];
     }
 
     public void update() {
