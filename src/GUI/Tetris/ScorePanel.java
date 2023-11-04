@@ -1,6 +1,6 @@
 package GUI.Tetris;
 
-import GUI.Properties.TColors;
+import GUI.Properties.TColor;
 import GUI.Properties.TStyle;
 
 import javax.swing.*;
@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class ScorePanel extends JPanel {
     public ScorePanel() {
-        setBackground(TColors.BLACK202);
+        setBackground(TColor.BLACK202);
     }
 
     @Override
@@ -19,7 +19,7 @@ public class ScorePanel extends JPanel {
     }
 
     public void draw(Graphics2D g2D) {
-        g2D.setColor(TColors.BRIGHT_GREEN);
+        g2D.setColor(TColor.BRIGHT_GREEN);
         g2D.setStroke(new BasicStroke(TStyle.basicStrokeBordersWidth));
         g2D.drawRoundRect(
                 getWidth() / 300 + 47,

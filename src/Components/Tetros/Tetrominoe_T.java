@@ -1,5 +1,7 @@
 package Components.Tetros;
 
+import GUI.Properties.TColor;
+
 public class Tetrominoe_T extends Tetrominoe {
     /*
         Shape (3 x 3)
@@ -15,11 +17,8 @@ public class Tetrominoe_T extends Tetrominoe {
             {0, 0, 0},
     };
     private final byte[][] rotateShape = new byte[4][4];
-    public Tetrominoe_T (String tetroColor) {
-        /*
-        el color de este es rosadito :)
-         */
-        super (tetroColor);
+    public Tetrominoe_T () {
+        tetroColor = TColor.VIOLET;
     }
 
     @Override

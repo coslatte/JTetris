@@ -1,6 +1,6 @@
 package GUI.Tetris;
 
-import GUI.Properties.TColors;
+import GUI.Properties.TColor;
 import GUI.Properties.TStyle;
 
 import javax.swing.*;
@@ -10,7 +10,7 @@ public class PlayManager extends JPanel {
     private final int[][] fieldArray;
 
     public PlayManager() {
-        setBackground(TColors.BLACK202);
+        setBackground(TColor.BLACK202);
         fieldArray = new int[20][10];
     }
 
@@ -25,7 +25,7 @@ public class PlayManager extends JPanel {
     }
 
     public void draw(Graphics2D g2D) {
-        g2D.setColor(TColors.BRIGHT_GREEN);
+        g2D.setColor(TColor.BRIGHT_GREEN);
         g2D.setStroke(new BasicStroke(TStyle.basicStrokeBordersWidth));
         g2D.drawRoundRect(
                 getWidth() / 350 + 5,

@@ -1,10 +1,9 @@
 package Components.Tetros;
 
+import java.awt.*;
+
 public abstract class Tetrominoe {
-    protected String tetroColor;
+    protected Color tetroColor;
     protected int[] spawnPosition = {0, 0};
-    public Tetrominoe(String tetroColor) {
-        this.tetroColor = tetroColor;
-    }
     public abstract byte[][] rotate(byte[][] c);
 }

@@ -1,13 +1,15 @@
 package Components.Tetros;
 
+import GUI.Properties.TColor;
+
 public class Tetrominoe_Z extends Tetrominoe {
     /*
         Shape (3 x 3)
         0º      90º     180º    270º
         r0      r1      r2      r3
-        ■ ■ □   □ ■ □   ■ ■ □   □ ■ □
-        □ ■ ■   ■ ■ □   □ ■ ■   ■ ■ □
-        □ □ □   ■ □ □   □ □ □   ■ □ □
+        ■ ■ □   □ □ ■   □ □ □   □ ■ □
+        □ ■ ■   □ ■ ■   ■ ■ □   ■ ■ □
+        □ □ □   □ ■ □   □ ■ ■   ■ □ □
     */
     private static final byte[][] spawnShape = {
             {7, 7, 0},
@@ -15,11 +17,8 @@ public class Tetrominoe_Z extends Tetrominoe {
             {0, 0, 0},
     };
     private final byte[][] rotateShape = new byte[4][4];
-    public Tetrominoe_Z (String tetroColor) {
-        /*
-        no jhay color especificado en el modelo
-         */
-        super (tetroColor);
+    public Tetrominoe_Z () {
+        tetroColor = TColor.RED;
     }
 
     @Override
