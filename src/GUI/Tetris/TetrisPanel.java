@@ -1,6 +1,6 @@
 package GUI.Tetris;
 
-import GUI.Properties.TColors;
+import GUI.Properties.TColor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +11,7 @@ public class TetrisPanel extends JPanel implements Runnable {
     ScorePanel rp;
     Thread gameThread;
     public TetrisPanel() {
-        setBackground(TColors.BLACK202);
+        setBackground(TColor.BLACK202);
         setLayout(new BorderLayout());
 
         // LEFT PANEL

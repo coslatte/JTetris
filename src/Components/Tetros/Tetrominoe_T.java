@@ -1,5 +1,7 @@
 package Components.Tetros;
 
+import GUI.Properties.TColor;
+
 public class Tetrominoe_T extends Tetrominoe {
     /*
         Shape (3 x 3)
@@ -10,16 +12,31 @@ public class Tetrominoe_T extends Tetrominoe {
         □ □ □   ■ □ □   □ ■ □   □ ■ □
     */
     private static final byte[][] spawnShape = {
-            {0, 1, 0},
-            {1, 1, 1},
+            {0, 6, 0},
+            {6, 6, 6},
             {0, 0, 0},
     };
-    public Tetrominoe_T (String tetroColor) {
-        super (tetroColor);
+    private final byte[][] rotateShape = new byte[4][4];
+    public Tetrominoe_T () {
+        tetroColor = TColor.VIOLET;
     }
 
     @Override
-    public void rotate() {
+    public byte[][] rotate(byte[][] c) {
+        for (int x = 0; x<c.length;x++){
+            for (int y= 0; y < c.length; y++){
+                rotateShape[y][rotateShape.length -1 -x] = c[x][y];
+            }
+        }
+        return rotateShape ;
 
+    }
+
+    public byte[][] getRotateShape() {
+        return rotateShape;
+    }
+
+    public byte[][] getSpawnShape() {
+        return spawnShape;
     }
 }
