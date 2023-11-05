@@ -1,4 +1,4 @@
-![model-picture](https://github.com/coslatte/JTetris/blob/master/model-looklike/Modelo%20Tetris%201.2.svg?sanitize=true)
+![model-picture](https://github.com/coslatte/JTetris/blob/master/model-looklike/Modelo%20Tetris%201.3.svg?sanitize=true)
 
 # The Game
 We are coding this Tetris clone in Java for the willing of learning and practice the language, aswell as having fun building it.
