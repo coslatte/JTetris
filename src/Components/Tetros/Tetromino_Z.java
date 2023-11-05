@@ -2,23 +2,23 @@ package Components.Tetros;
 
 import GUI.Properties.TColor;
 
-public class Tetrominoe_T extends Tetrominoe {
+public class Tetromino_Z extends Tetromino {
     /*
         Shape (3 x 3)
         0º      90º     180º    270º
         r0      r1      r2      r3
-        □ ■ □   ■ □ □   □ □ □   □ ■ □
-        ■ ■ ■   ■ ■ □   ■ ■ ■   ■ ■ □
-        □ □ □   ■ □ □   □ ■ □   □ ■ □
+        ■ ■ □   □ □ ■   □ □ □   □ ■ □
+        □ ■ ■   □ ■ ■   ■ ■ □   ■ ■ □
+        □ □ □   □ ■ □   □ ■ ■   ■ □ □
     */
     private static final byte[][] spawnState = {
-            {0, 6, 0},
-            {6, 6, 6},
+            {7, 7, 0},
+            {0, 7, 7},
             {0, 0, 0},
     };
     private final byte[][] rotateShape = new byte[4][4];
-    public Tetrominoe_T () {
-        tetroColor = TColor.VIOLET;
+    public Tetromino_Z() {
+        tetroColor = TColor.RED;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class Tetrominoe_T extends Tetrominoe {
     public byte[][] getRotateShape() {
         return rotateShape;
     }
-    public byte[][] getSpawnShape() {
+    public byte[][] getSpawnState() {
         return spawnState;
     }
 }

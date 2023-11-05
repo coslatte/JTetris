@@ -2,7 +2,7 @@ package Components.Tetros;
 
 import GUI.Properties.TColor;
 
-public class Tetrominoe_I extends Tetrominoe {
+public class Tetromino_I extends Tetromino {
     /*
         Shape (4 x 4)
         0º        90º       180º      270º
@@ -19,7 +19,7 @@ public class Tetrominoe_I extends Tetrominoe {
             {0, 0, 0, 0}
     };
     private final byte[][] rotateShape = new byte[4][4];
-    public Tetrominoe_I() {
+    public Tetromino_I() {
         tetroColor = TColor.CYAN;
     }
 
