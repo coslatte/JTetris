@@ -7,8 +7,9 @@ public abstract class Tetromino {
     protected byte[][] centrePoint;
     protected int[] spawnPosition;
     protected byte[][] rotatedTetro;
+
     /**
-     * Según el SRS, para los tetrominos <strong>J</strong>, <strong>L</strong>, <strong>S</strong>, <strong>T</strong> y <strong></strong> esta es la tabla con los valores de corrimiento del punto central del tetromino acorde a la posibilidad o no de poder rotar.
+     * Según el SRS, para los tetrominos <strong>J</strong>, <strong>L</strong>, <strong>S</strong> y <strong>T</strong> esta es la tabla con los valores de corrimiento del punto central del tetromino acorde a la posibilidad o no de poder rotar.
      * <p> Teniendo: </p>
      * <p> Filas(4) - Rotación </p>
      * <p> Columna(5) - Desfaz (Offset) del centro del tetromino. </p>
@@ -20,6 +21,7 @@ public abstract class Tetromino {
             {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
             {{0, 0}, {-1, 0}, {-1, -1}, {0, 2}, {-1, 2}}
     };
+
     /**
      * Según el SRS, para el tetromino <strong>I</strong> esta es la tabla con los valores de corrimiento del punto central del tetromino acorde a la posibilidad o no de poder rotar.
      * <p> Teniendo: </p>
@@ -33,6 +35,7 @@ public abstract class Tetromino {
             {{-1, 1}, {0, 0}, {0, 0}, {0, 1}, {0, -2}},
             {{-1, 1}, {1, 1}, {-2, 1}, {1, 0}, {-2, 0}}
     };
+
     /**
      * Según el SRS, para el tetromino <strong>O</strong> esta es la tabla con los valores de corrimiento del punto central del tetromino acorde a la posibilidad o no de poder rotar.
      * <p> Teniendo: </p>
@@ -49,7 +52,7 @@ public abstract class Tetromino {
      * @param c
      * @return rotatedTetro  la matriz <code> c </code> pasada como parámetro en sentido antihorario.
      */
-    public byte[][] rotateL(byte[][] c) {
+    public byte[][] rotateTetromino(byte[][] c) {
         for (int x = 0; x < c.length; x++) {
             for (int y = 0; y < c.length; y++) {
                 rotatedTetro[y][rotatedTetro.length - 1 - x] = c[x][y];
