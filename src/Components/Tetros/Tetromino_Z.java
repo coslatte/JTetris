@@ -12,7 +12,6 @@ import GUI.Properties.TColor;
  * □ □ □   □ ■ □   □ ■ ■   ■ □ □ */
 
 public class Tetromino_Z extends Tetromino {
-    private final byte[][] rotateShape = new byte[4][4];
     public Tetromino_Z() {
         tetroColor = TColor.RED;
 
@@ -25,7 +24,7 @@ public class Tetromino_Z extends Tetromino {
     }
 
     @Override
-    public byte[][] rotateTetromino(byte[][] c) {
-        return super.rotateTetromino(c);
+    public void rotateTetromino(boolean orientation) {
+        super.rotateTetromino(orientation);
     }
 }

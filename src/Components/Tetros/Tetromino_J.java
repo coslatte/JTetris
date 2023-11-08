@@ -24,7 +24,7 @@ public class Tetromino_J extends Tetromino {
     }
 
     @Override
-    public byte[][] rotateTetromino(byte[][] c) {
-        return super.rotateTetromino(c);
+    public void rotateTetromino(boolean orientation) {
+        super.rotateTetromino(orientation);
     }
 }

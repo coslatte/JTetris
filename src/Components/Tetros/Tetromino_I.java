@@ -12,6 +12,7 @@ import GUI.Properties.TColor;
  * ■ ■ ■ ■   □ □ ■ □   □ □ □ □   □ ■ □ □
  * □ □ □ □   □ □ ■ □   ■ ■ ■ ■   □ ■ □ □
  * □ □ □ □   □ □ ■ □   □ □ □ □   □ ■ □ □ */
+
 public class Tetromino_I extends Tetromino {
     public Tetromino_I() {
         tetroColor = TColor.CYAN;
@@ -26,7 +27,7 @@ public class Tetromino_I extends Tetromino {
     }
 
     @Override
-    public byte[][] rotateTetromino(byte[][] c) {
-        return super.rotateTetromino(c);
+    public void rotateTetromino(boolean orientation) {
+        super.rotateTetromino(orientation);
     }
 }
