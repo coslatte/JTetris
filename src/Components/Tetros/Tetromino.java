@@ -3,10 +3,26 @@ package Components.Tetros;
 import java.awt.*;
 
 public abstract class Tetromino {
-    protected Color tetroColor;
-    protected byte[][] centrePoint;
-    protected int[] spawnPosition;
-    protected byte[][] rotatedTetro;
+
+    /**
+     * Color del tetromino.
+     */
+    public static Color tetroColor;
+
+    /**
+     * Estado actual en que se encuentra el tetromino.
+     */
+    protected byte[][] actualState;
+
+    /**
+     * Estado en que se encuentra el tetromino rotado.
+     */
+    protected byte[][] rotatedState;
+
+    /**
+     * Rotación actual del tetromino.
+     */
+    protected byte r;
 
     /**
      * Según el SRS, para los tetrominos <strong>J</strong>, <strong>L</strong>, <strong>S</strong> y <strong>T</strong> esta es la tabla con los valores de corrimiento del punto central del tetromino acorde a la posibilidad o no de poder rotar.
@@ -55,9 +71,21 @@ public abstract class Tetromino {
     public byte[][] rotateTetromino(byte[][] c) {
         for (int x = 0; x < c.length; x++) {
             for (int y = 0; y < c.length; y++) {
-                rotatedTetro[y][rotatedTetro.length - 1 - x] = c[x][y];
+                rotatedState[y][rotatedState.length - 1 - x] = c[x][y];
             }
         }
-        return rotatedTetro;
+        return rotatedState;
+    }
+
+    public static Color getTetroColor() {
+        return tetroColor;
+    }
+
+    public byte[][] getActualState() {
+        return actualState;
+    }
+
+    public byte[][] getRotatedState() {
+        return rotatedState;
     }
 }
