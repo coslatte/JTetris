@@ -64,17 +64,24 @@ public abstract class Tetromino {
     };
 
     /**
-     * Método que rotar 90º hacia la izquierda la matriz que se pasa por parámetros.
-     * @param c
-     * @return rotatedTetro  la matriz <code> c </code> pasada como parámetro en sentido antihorario.
+     * Rota el tetromino actual 90º en el sentido en que indique el parámetro.
+     * @param orientation Si '{@code true}' rota en sentido horario; antihorario en caso contrario.
      */
-    public byte[][] rotateTetromino(byte[][] c) {
-        for (int x = 0; x < c.length; x++) {
-            for (int y = 0; y < c.length; y++) {
-                rotatedState[y][rotatedState.length - 1 - x] = c[x][y];
+    public void rotateTetromino(boolean orientation) {
+        rotatedState = new byte[actualState.length][actualState[0].length];
+        if (orientation) {
+            System.out.println("Se intentará rotar el tetromino hacia la derecha.");
+            for (int i = 0; i < actualState.length; i++) {
+                for (int j = 0; j < actualState.length; j++) {
+                    rotatedState[j][rotatedState.length - 1 - i] = actualState[i][j];
+                }
+            }
+        } else {
+            System.out.println("Se intentará rotar el tetromino hacia la izquierda.");
+            for (int i = 0; i < actualState.length; i++) {
+                System.arraycopy(actualState[i], 0, rotatedState[rotatedState.length - 1 - i], 0, actualState.length);
             }
         }
-        return rotatedState;
     }
 
     public static Color getTetroColor() {
