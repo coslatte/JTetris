@@ -13,6 +13,5 @@ public class TColor {
     public static final Color GREEN = Color.decode("#47eb65"); //Tetrominoe S
     public static final Color VIOLET = Color.decode("#be4bdb"); //Tetrominoe T
     public static final Color RED = Color.decode("#e03131"); //Tetrominoe Z
-
     public static final Color BRIGHT_GREEN = Color.decode("#12b886");
 }

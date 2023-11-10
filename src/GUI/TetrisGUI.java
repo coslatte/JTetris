@@ -1,17 +1,24 @@
 package GUI;
 
+import GUI.Tetris.FirstPanel;
 import GUI.Tetris.TetrisPanel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
 public class TetrisGUI {
+    private FirstPanel fp;
+    private TetrisPanel tp;
+    private JFrame mainFrame;
+    private Timer timer;
+   
     public static void main(String[] args) {
 
-        JFrame mainFrame = new JFrame("JTetris Alpha Version");
+        JFrame mainFrame = new JFrame("JTetris");
 
         // ÍCONO DE LA APLICACIÓN
         try {
@@ -22,10 +29,19 @@ public class TetrisGUI {
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setResizable(false);
-
+        FirstPanel fp = new FirstPanel();
         TetrisPanel tp = new TetrisPanel();
-        mainFrame.add(tp);
 
+        mainFrame.add(fp);
+        fp.addActionForButton(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.remove(fp);
+                mainFrame.add(tp);
+                mainFrame.revalidate();
+                tp.startGameThread();
+            }
+        });
         /*
          * Clase Toolkit de Java para obtener las dimensiones de la pantalla y ponerlo para que aparezca en
          * coordenadas relativas al monitor. Con esta se obtiene el ancho y largo de la pantalla y dividiéndolo entre
@@ -36,7 +52,7 @@ public class TetrisGUI {
 
         mainFrame.setSize(650, 700);
         mainFrame.setLocationRelativeTo(null);
-        tp.startGameThread();
+        //tp.startGameThread();
         mainFrame.setVisible(true);
     }
 }

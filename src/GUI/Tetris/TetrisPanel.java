@@ -6,10 +6,27 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TetrisPanel extends JPanel implements Runnable {
+
+    /**
+     * Cantidad de FPS que tendrá el juego.
+     */
     private static final int FPS = 60;
+
+    /**
+     * Panel de la izquierda.
+     */
     PlayManager lp;
+
+    /**
+     * Panel de la derecha.
+     */
     ScorePanel rp;
+
+    /**
+     * Hilo del juego.
+     */
     Thread gameThread;
+
     public TetrisPanel() {
         setBackground(TColor.BLACK202);
         setLayout(new BorderLayout());
@@ -25,11 +42,13 @@ public class TetrisPanel extends JPanel implements Runnable {
         add(lp, BorderLayout.WEST);
         add(rp, BorderLayout.EAST);
     }
+
     // Este método inicia el thread del Panel principal (TetrisPanel).
     public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
     }
+
     @Override
     public void run() {
         /*
@@ -104,9 +123,11 @@ public class TetrisPanel extends JPanel implements Runnable {
             }
         }
     }
+
     public void update() {
         lp.update();
     }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
