@@ -30,7 +30,7 @@ public class PlayButton extends JButton {
     /**
      * Radio o grosor del borde del botón.
      */
-    private final int radius;
+    private final int radius = 10;
 
     public PlayButton() {
         /*
@@ -38,7 +38,6 @@ public class PlayButton extends JButton {
          * En otras palabras, implementaremos sus métodos aquí.
          */
         setSize(100, 50);
-        radius = 10;
         borderToBeFilled = new RoundRectangle2D.Double();
 
         // Botón que dará inicio al juego:

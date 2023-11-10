@@ -2,11 +2,9 @@ package GUI;
 
 import GUI.Tetris.FirstPanel;
 import GUI.Tetris.TetrisPanel;
-import GUI.Tetris.GUI_Components.PlayButton;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -20,7 +18,7 @@ public class TetrisGUI {
    
     public static void main(String[] args) {
 
-        JFrame mainFrame = new JFrame("JTetris Alpha Version");
+        JFrame mainFrame = new JFrame("JTetris");
 
         // ÍCONO DE LA APLICACIÓN
         try {
@@ -33,22 +31,16 @@ public class TetrisGUI {
         mainFrame.setResizable(false);
         FirstPanel fp = new FirstPanel();
         TetrisPanel tp = new TetrisPanel();
-        
 
         mainFrame.add(fp);
         fp.addActionForButton(new ActionListener() {
-
-            
             @Override
             public void actionPerformed(ActionEvent e) {
-               
                 mainFrame.remove(fp);
                 mainFrame.add(tp);
                 mainFrame.revalidate();
                 tp.startGameThread();
-                
             }
-            
         });
         /*
          * Clase Toolkit de Java para obtener las dimensiones de la pantalla y ponerlo para que aparezca en
@@ -63,5 +55,4 @@ public class TetrisGUI {
         //tp.startGameThread();
         mainFrame.setVisible(true);
     }
-    
 }
