@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PlayManager extends JPanel {
+
     /**
      * <code> fieldArray </code> tiene la responsabilidad de iniciar los valores (en 0) de la matriz
      * donde van a estar los bloques que forman a los tetrominos.

@@ -14,23 +14,36 @@ import GUI.Properties.TStyle;
 import GUI.Tetris.GUI_Components.PlayButton;
 import java.awt.*;
 
-public class FirstPanel extends JPanel {
-    /*
-     * panel de inicio de el juego contendra en titulo de el juego asi como un boton para empezar a jugar
+    /**
+     * Panel de inicio del juego que contendrá:
+     * <li> Título del juego.
+     * <li> Botón <strong>PLAY</strong>, para empezar a jugar.
+     * <li> Botón <strong>OPTIONS</strong>, para ajustes de configuraciones varias. // Próximamente
+     * <li> Botón <strong>Salir</strong>. // Próximamente.
      */
-    private PlayButton playButton;
-    
+public class FirstPanel extends JPanel {
+
+    /**
+     * Botón <strong>PLAY</strong>.
+     */
+    private final PlayButton playButton;
+
+    /**
+     * Hilo para animación (Próximamente)
+     */
     Thread firstAnimation;
-    public FirstPanel(){
+
+    public FirstPanel() {
         setBackground(TColor.BLACK202);
         setLayout(null);
         playButton = new PlayButton();
         add(playButton);
-
     }
-    public void addActionForButton(ActionListener e){
+
+    public void addActionForButton(ActionListener e) {
         playButton.addActionListener(e);
     }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -45,9 +58,8 @@ public class FirstPanel extends JPanel {
                 TStyle.rectangleRoundBordersAmount,
                 TStyle.rectangleRoundBordersAmount
         );
-        /*
-         * coordenadas que va a tener el boton, asi como su dimension
-         */
-        playButton.setBounds(getWidth()/3+28, getHeight()/2+50, getWidth()/4, getHeight()/16);
+
+        // Coordenadas y dimensiones que tendrá el botón.
+        playButton.setBounds(getWidth() / 3 + 28, getHeight() / 2 + 50, getWidth() / 4, getHeight() / 16);
     }
 }
