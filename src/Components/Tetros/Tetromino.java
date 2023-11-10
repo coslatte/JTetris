@@ -76,12 +76,38 @@ public abstract class Tetromino {
                     rotatedState[j][rotatedState.length - 1 - i] = actualState[i][j];
                 }
             }
+            updateR(true);
         } else {
             System.out.println("Se intentará rotar el tetromino hacia la izquierda.");
             for (int i = 0; i < actualState.length; i++) {
                 System.arraycopy(actualState[i], 0, rotatedState[rotatedState.length - 1 - i], 0, actualState.length);
             }
+            updateR(false);
         }
+    }
+
+    /**
+     * Actualiza el valor de <strong>r</strong>. Se suma 1 si la rotación se efectúa horariamente, y se resta 1
+     * si se realiza antihorariamente.
+     * Su valor pasará por 4 estados:
+     * <li> r = 0: Tetromino estará en su rotación de spawn. </li>
+     * <li> r = 1: Tetromino habrá efectuado una rotación de 90º. </li>
+     * <li> r = 2: Tetromino habrá efectuado una rotación de 180º. </li>
+     * <li> r = 3: Tetromino habrá efectuado una rotación de 270º. </li>
+     * @param clockwise Valor booleano para determinar si se suma o se resta en 1 el valor de <strong>r</strong>
+     *                  dependiendo si la rotación se efectúa horaria o antihorariamente.
+     */
+    private void updateR(boolean clockwise) {
+        if (clockwise) {
+            if (r == 3)
+                r = 0;
+            else
+                r++;
+        } else
+            if (r == 0)
+                r = 3;
+            else
+                r--;
     }
 
     public static Color getTetroColor() {
