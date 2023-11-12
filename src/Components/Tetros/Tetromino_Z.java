@@ -16,7 +16,7 @@ public class Tetromino_Z extends Tetromino {
         tetroColor = TColor.RED;
 
         // spawn state
-        actualState = new byte[][]{
+        actualShape = new byte[][]{
                 {7, 7, 0},
                 {0, 7, 7},
                 {0, 0, 0},

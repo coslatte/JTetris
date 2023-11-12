@@ -16,15 +16,10 @@ public class Tetromino_O extends Tetromino {
         tetroColor = TColor.YELLOW;
 
         // spawn shape
-        actualState = new byte[][]{
+        actualShape = new byte[][]{
                 {0, 4, 4},
                 {0, 4, 4},
                 {0, 0, 0},
         };
-    }
-
-    @Override
-    public void rotateTetromino(boolean orientation) {
-        super.rotateTetromino(orientation);
     }
 }
