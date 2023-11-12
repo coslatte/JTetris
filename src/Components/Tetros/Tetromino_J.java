@@ -16,7 +16,7 @@ public class Tetromino_J extends Tetromino {
         tetroColor = TColor.BLUE;
 
         // spawn shape
-        actualState = new byte[][]{
+        actualShape = new byte[][]{
                 {2, 0, 0},
                 {2, 2, 2},
                 {0, 0, 0}
