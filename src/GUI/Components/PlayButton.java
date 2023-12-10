@@ -1,4 +1,4 @@
-package GUI.Tetris.GUI_Components;
+package GUI.Components;
 
 import GUI.Properties.TColor;
 import GUI.Properties.TStyle;
@@ -10,6 +10,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 
+/**
+ * Clase responsable del componente Botón <b>PLAY</b>.
+ */
 public class PlayButton extends JButton {
 
     /**
@@ -34,7 +37,7 @@ public class PlayButton extends JButton {
 
     public PlayButton() {
         /*
-         * Aquí se define el borde que tendrá el botón, es con una interfaz la cual construiremos acá.
+         * Se define el borde que tendrá el botón, es con una interfaz la cual construiremos acá.
          * En otras palabras, implementaremos sus métodos aquí.
          */
         setSize(100, 50);
@@ -113,7 +116,7 @@ public class PlayButton extends JButton {
          * El método setFont de debajo es editable.
          * Se le puede cambiar tamaño si se quiere, de todas formas se adapta al texto del botón.
          */
-        // TODO hacer una clase que maneje configuraciones de aspectos personalizables como esta en un futuro...
+        // TODO: hacer una clase que maneje configuraciones de aspectos personalizables como esta en un futuro...
         g2.setFont(new Font("Arial", Font.BOLD, 20));
 
         /*

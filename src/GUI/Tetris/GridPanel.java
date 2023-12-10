@@ -6,14 +6,17 @@ import GUI.Properties.TStyle;
 import javax.swing.*;
 import java.awt.*;
 
-public class PlayManager extends JPanel {
+/**
+ * Clase donde van las matrices y básicamente el juego; donde se anima.
+ */
+public class GridPanel extends JPanel {
 
     /**
      * <code> fieldArray </code> tiene la responsabilidad de iniciar los valores (en 0) de la matriz
      * donde van a estar los bloques que forman a los tetrominos.
      */
     private final int[][] fieldArray = new int[20][10];
-    public PlayManager() {
+    public GridPanel() {
         setBackground(TColor.BLACK202);
     }
 

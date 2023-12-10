@@ -3,15 +3,13 @@ package GUI.Tetris;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import GUI.TetrisGUI;
 import GUI.Properties.TColor;
 import GUI.Properties.TStyle;
-import GUI.Tetris.GUI_Components.PlayButton;
+import GUI.Components.PlayButton;
 import java.awt.*;
 
     /**
@@ -21,7 +19,7 @@ import java.awt.*;
      * <li> Botón <strong>OPTIONS</strong>, para ajustes de configuraciones varias. // Próximamente
      * <li> Botón <strong>Salir</strong>. // Próximamente.
      */
-public class FirstPanel extends JPanel {
+public class MainMenuPanel extends JPanel {
 
     /**
      * Botón <strong>PLAY</strong>.
@@ -33,7 +31,7 @@ public class FirstPanel extends JPanel {
      */
     Thread firstAnimation;
 
-    public FirstPanel() {
+    public MainMenuPanel() {
         setBackground(TColor.BLACK202);
         setLayout(null);
         playButton = new PlayButton();

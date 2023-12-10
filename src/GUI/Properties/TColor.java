@@ -2,6 +2,9 @@ package GUI.Properties;
 
 import java.awt.*;
 
+/**
+ * Paleta de colores de la aplicación.
+ */
 public class TColor {
     public static final Color BLACK202 = Color.decode("#202020");
     public static final Color BLACK303 = Color.decode("#303030");

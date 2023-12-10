@@ -5,7 +5,10 @@ import GUI.Properties.TColor;
 import javax.swing.*;
 import java.awt.*;
 
-public class TetrisPanel extends JPanel implements Runnable {
+/**
+ *
+ */
+public class GamePanel extends JPanel implements Runnable {
 
     /**
      * Cantidad de FPS que tendrá el juego.
@@ -15,32 +18,32 @@ public class TetrisPanel extends JPanel implements Runnable {
     /**
      * Panel de la izquierda.
      */
-    PlayManager lp;
+    GridPanel lp;
 
     /**
      * Panel de la derecha.
      */
-    ScorePanel rp;
+    ScorePanel scorePanel;
 
     /**
      * Hilo del juego.
      */
     Thread gameThread;
 
-    public TetrisPanel() {
+    public GamePanel() {
         setBackground(TColor.BLACK202);
         setLayout(new BorderLayout());
 
         // LEFT PANEL
-        lp = new PlayManager();
+        lp = new GridPanel();
         lp.setPreferredSize(new Dimension(380, 700));
 
         // RIGHT PANEL
-        rp = new ScorePanel();
-        rp.setPreferredSize(new Dimension(300, 700));
+        scorePanel = new ScorePanel();
+        scorePanel.setPreferredSize(new Dimension(300, 700));
 
         add(lp, BorderLayout.WEST);
-        add(rp, BorderLayout.EAST);
+        add(scorePanel, BorderLayout.EAST);
     }
 
     // Este método inicia el thread del Panel principal (TetrisPanel).
@@ -132,6 +135,6 @@ public class TetrisPanel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         lp.draw(g2);
-        rp.draw(g2);
+        scorePanel.draw(g2);
     }
 }

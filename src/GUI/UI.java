@@ -1,20 +1,20 @@
 package GUI;
 
-import GUI.Tetris.FirstPanel;
-import GUI.Tetris.TetrisPanel;
+import GUI.Tetris.MainMenuPanel;
+import GUI.Tetris.GamePanel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
-public class TetrisGUI {
-    private FirstPanel fp;
-    private TetrisPanel tp;
-    private JFrame mainFrame;
-    private Timer timer;
+public class UI {
+//    private MainMenuPanel fp;
+//    private GamePanel tp;
+//    private JFrame mainFrame;
+//    private Timer timer;
    
     public static void main(String[] args) {
 
@@ -29,19 +29,17 @@ public class TetrisGUI {
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setResizable(false);
-        FirstPanel fp = new FirstPanel();
-        TetrisPanel tp = new TetrisPanel();
+        MainMenuPanel mmp = new MainMenuPanel();
+        GamePanel gp = new GamePanel();
 
-        mainFrame.add(fp);
-        fp.addActionForButton(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainFrame.remove(fp);
-                mainFrame.add(tp);
-                mainFrame.revalidate();
-                tp.startGameThread();
-            }
+        mainFrame.add(mmp);
+        mmp.addActionForButton(e -> {
+            mainFrame.remove(mmp);
+            mainFrame.add(gp);
+            mainFrame.revalidate();
+            gp.startGameThread();
         });
+
         /*
          * Clase Toolkit de Java para obtener las dimensiones de la pantalla y ponerlo para que aparezca en
          * coordenadas relativas al monitor. Con esta se obtiene el ancho y largo de la pantalla y dividiéndolo entre
@@ -52,7 +50,7 @@ public class TetrisGUI {
 
         mainFrame.setSize(650, 700);
         mainFrame.setLocationRelativeTo(null);
-        //tp.startGameThread();
+        //gp.startGameThread();
         mainFrame.setVisible(true);
     }
 }
