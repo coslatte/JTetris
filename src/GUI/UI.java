@@ -1,26 +1,20 @@
 package GUI;
 
-import GUI.Tetris.MainMenuPanel;
-import GUI.Tetris.GamePanel;
+import GUI.Components.Panels.Menu.OptionsPanel;
+import GUI.Components.Panels.Menu.MainMenuPanel;
+import GUI.Components.Panels.Game.GamePanel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
 public class UI {
-//    private MainMenuPanel fp;
-//    private GamePanel tp;
-//    private JFrame mainFrame;
-//    private Timer timer;
-   
     public static void main(String[] args) {
 
         JFrame mainFrame = new JFrame("JTetris");
 
-        // ÍCONO DE LA APLICACIÓN
+        // jtetris icon
         try {
             mainFrame.setIconImage(ImageIO.read(new File("icon/jtetris-icon.png")));
         } catch (IOException e) {
@@ -28,29 +22,34 @@ public class UI {
         }
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setSize(650, 700);
         mainFrame.setResizable(false);
-        MainMenuPanel mmp = new MainMenuPanel();
-        GamePanel gp = new GamePanel();
+        mainFrame.setLocationRelativeTo(null);
 
-        mainFrame.add(mmp);
-        mmp.addActionForButton(e -> {
-            mainFrame.remove(mmp);
-            mainFrame.add(gp);
+        MainMenuPanel mainMenuPanel = new MainMenuPanel();
+        GamePanel gamePanel = new GamePanel();
+        OptionsPanel optionsPanel = new OptionsPanel();
+
+        mainFrame.add(mainMenuPanel);
+
+        // PLAY Button
+        mainMenuPanel.addActionForButtonPlay(e -> {
+            mainFrame.remove(mainMenuPanel);
+            mainFrame.add(gamePanel);
             mainFrame.revalidate();
-            gp.startGameThread();
+            gamePanel.startGameThread();
         });
 
-        /*
-         * Clase Toolkit de Java para obtener las dimensiones de la pantalla y ponerlo para que aparezca en
-         * coordenadas relativas al monitor. Con esta se obtiene el ancho y largo de la pantalla y dividiéndolo entre
-         * un número. Va a dar como resultado unas coordenadas relativas a cualquier monitor
-         */
-//        Dimension screenDimensions = Toolkit.getDefaultToolkit().getScreenSize();
-//        mainFrame.setLocation((int) (screenDimensions.getWidth() / 6), (int) (screenDimensions.getHeight() / 6));
+        // OPTIONS Button
+        mainMenuPanel.addActionForButtonOptions(e -> {
+            mainFrame.remove(mainMenuPanel);
+            mainFrame.add(optionsPanel);
+            mainFrame.revalidate();
+        });
 
-        mainFrame.setSize(650, 700);
-        mainFrame.setLocationRelativeTo(null);
-        //gp.startGameThread();
+        // EXIT Button
+        mainMenuPanel.addActionForButtonExit(e -> System.exit(1));
+
         mainFrame.setVisible(true);
     }
 }

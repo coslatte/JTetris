@@ -1,5 +1,6 @@
 package Components.Tetros;
 
+import Components.Tetros.Primitives.Tetromino;
 import GUI.Properties.TColor;
 
 

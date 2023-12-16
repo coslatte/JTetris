@@ -1,4 +1,4 @@
-package GUI.Tetris;
+package GUI.Components.Panels.Game;
 
 import GUI.Properties.TColor;
 import GUI.Properties.TStyle;
