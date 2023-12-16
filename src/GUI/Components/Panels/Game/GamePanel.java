@@ -1,4 +1,4 @@
-package GUI.Tetris;
+package GUI.Components.Panels.Game;
 
 import GUI.Properties.TColor;
 
@@ -46,7 +46,7 @@ public class GamePanel extends JPanel implements Runnable {
         add(scorePanel, BorderLayout.EAST);
     }
 
-    // Este método inicia el thread del Panel principal (TetrisPanel).
+    // Este método inicia el thread del Panel principal (GamePanel).
     public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
@@ -70,7 +70,7 @@ public class GamePanel extends JPanel implements Runnable {
          */
 
         // El game loop que vamos a usar será 'delta/accumulator loop'.
-        double drawInterval = (double) 1000000000 / FPS; // Muchos ceros, gran precisión. Esto no es más que 0.016 seg.
+        double drawInterval = (double) 1000000000 / FPS; // Esto no es más que 0.016 seg.
         double delta = 0;
 
         /*
@@ -92,8 +92,8 @@ public class GamePanel extends JPanel implements Runnable {
 
             /*
             Se resta el tiempo actual (currentTime) con el último tiempo registrado (lastTime), o sea, cuánto tiempo
-            ha pasado, y se divide entre los intervalos para dibujar que asignamos en 'drawInterval'. Finalmente,
-            dicho resultado se suma a la variable 'delta'.
+            ha pasado, y se divide entre los intervalos para dibujar que asignamos en 'drawInterval'.
+            Finalmente, dicho resultado se suma a la variable 'delta'.
              */
             delta += (currentTime - lastTime) / drawInterval;
 

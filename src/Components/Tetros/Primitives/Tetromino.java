@@ -1,4 +1,4 @@
-package Components.Tetros;
+package Components.Tetros.Primitives;
 
 import java.awt.*;
 
