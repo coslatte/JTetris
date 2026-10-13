@@ -7,7 +7,7 @@ public abstract class Tetromino {
     /**
      * Color del tetromino.
      */
-    public static Color tetroColor;
+    protected Color tetroColor;
 
     /**
      * Estado actual en que se encuentra el tetromino.
@@ -23,6 +23,12 @@ public abstract class Tetromino {
      * Rotación actual del tetromino.
      */
     protected byte r = 0;
+
+    /**
+     * Valor de <strong>r</strong> anterior al intento de rotación en curso. Sirve para poder deshacer el
+     * cambio cuando la rotación finalmente resulta inválida (ver {@link #cancelRotation()}).
+     */
+    protected byte previousR = 0;
 
     /**
      * Variable que controla el centro de la pieza. <br>
@@ -81,26 +87,94 @@ public abstract class Tetromino {
     };
 
     /**
+     * Identificador numérico del tetromino. Lo asigna cada subclase en su constructor y es el mismo número
+     * que aparece escrito dentro de las celdas de su forma.
+     */
+    protected byte typeId;
+
+    /**
+     * Devuelve el desplazamiento (columnas, filas) que la tabla SRS del tetromino indica para el test
+     * solicitado partiendo del estado de rotación <strong>r</strong>.
+     * <p>
+     * La columna 0 de cada tabla es siempre el test "sin desplazamiento", por lo que el tablero puede
+     * iterar los tests de 0 a 4 sin tratar ese caso por separado. La tabla del tetromino O tiene una única
+     * fila, de modo que cualquier estado de rotación devuelve su fila 0.
+     *
+     * @param r    Estado de rotación desde el que se intenta salir.
+     * @param test Número de test, de 0 a 4.
+     * @return Arreglo de dos elementos: desplazamiento en columnas y en filas.
+     */
+    public byte[] getOffset(int r, int test) {
+        byte[][][] table;
+        if (typeId == 1) {
+            table = I_TetrominoOffsetData;
+        } else if (typeId == 4) {
+            table = O_TetrominoOffsetData;
+            r = 0;
+        } else {
+            table = JLSTZ_TetrominoOffsetData;
+        }
+
+        // Se acota 'r' y 'test' para que un valor inesperado nunca provoque un desbordamiento.
+        int row = Math.floorMod(r, table.length);
+        int col = Math.min(Math.max(test, 0), table[row].length - 1);
+        return table[row][col];
+    }
+
+    public byte getTypeId() {
+        return typeId;
+    }
+
+    /**
      * Rota el tetromino actual 90º en el sentido en que indique el parámetro.
+     * <p>
+     * La rotación se calcula sobre una matriz cuadrada del mismo tamaño que la forma actual, de modo que
+     * la pieza siempre conserva su caja. El resultado queda en {@link #rotatedShape} y <strong>no</strong> se
+     * aplica todavía: el tablero es quien decide si la rotación es legal (colisiones, paredes, suelo) y, si lo es,
+     * llama a {@link #applyRotation()}. Así una rotación inválida no destruye la forma anterior.
+     *
      * @param orientation Si '{@code true}' rota en sentido horario; antihorario en caso contrario.
      */
     public void rotateTetromino(boolean orientation) {
-        rotatedShape = new byte[actualShape.length][actualShape[0].length];
+        int n = actualShape.length;
+        previousR = r;
+        rotatedShape = new byte[n][n];
         if (orientation) {
-            System.out.println("Se intentará rotar el tetromino hacia la derecha.");
-            for (int i = 0; i < actualShape.length; i++) {
-                for (int j = 0; j < actualShape.length; j++) {
-                    rotatedShape[j][rotatedShape.length - 1 - i] = actualShape[i][j];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    rotatedShape[j][n - 1 - i] = actualShape[i][j];
                 }
             }
             updateR(true);
         } else {
-            System.out.println("Se intentará rotar el tetromino hacia la izquierda.");
-            for (int i = 0; i < actualShape.length; i++) {
-                System.arraycopy(actualShape[i], 0, rotatedShape[rotatedShape.length - 1 - i], 0, actualShape.length);
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    rotatedShape[n - 1 - j][i] = actualShape[i][j];
+                }
             }
             updateR(false);
         }
+    }
+
+    /**
+     * Acepta la última rotación calculada por {@link #rotateTetromino(boolean)}, convirtiendo
+     * {@link #rotatedShape} en la nueva {@link #actualShape}.
+     */
+    public void applyRotation() {
+        if (rotatedShape != null) {
+            actualShape = rotatedShape;
+            rotatedShape = null;
+        }
+    }
+
+    /**
+     * Descarta la rotación pendiente sin aplicarla. Se usa cuando el tablero no encuentra ningún test del
+     * SRS que permita rotar: se descarta la matriz candidata y se devuelve <strong>r</strong> al valor que
+     * tenía antes del intento, para que el estado interno siga siendo coherente con lo dibujado.
+     */
+    public void cancelRotation() {
+        rotatedShape = null;
+        r = previousR;
     }
 
     /**
@@ -127,7 +201,7 @@ public abstract class Tetromino {
                 r--;
     }
 
-    public static Color getTetroColor() {
+    public Color getTetroColor() {
         return tetroColor;
     }
 
@@ -137,5 +211,9 @@ public abstract class Tetromino {
 
     public byte[][] getRotatedShape() {
         return rotatedShape;
+    }
+
+    public byte getR() {
+        return r;
     }
 }

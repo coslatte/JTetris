@@ -14,6 +14,7 @@ import GUI.Properties.TColor;
 
 public class Tetromino_O extends Tetromino {
     public Tetromino_O() {
+        typeId = 4;
         tetroColor = TColor.YELLOW;
 
         // spawn shape

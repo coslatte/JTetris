@@ -14,6 +14,7 @@ import GUI.Properties.TColor;
 
 public class Tetromino_Z extends Tetromino {
     public Tetromino_Z() {
+        typeId = 7;
         tetroColor = TColor.RED;
 
         // spawn state
